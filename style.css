@@ -1,0 +1,103 @@
+/* Hintergrundfarbe der gesamten Seite */
+body {
+    background-color: #808080; /* Grau */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1{
+    font-family: "Roboto Mono", monospace;
+    font-size: 48px;
+    color: white;
+}
+
+/* Grid für das Tic-Tac-Toe-Spielfeld */
+.tic-tac-toe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    width: max-content;
+    gap: 0; /* Kein äußerer Abstand zwischen den Feldern */
+}
+
+/* Stil für jedes einzelne Spielfeld */
+.field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #808080; /* Hintergrund für befüllte Felder */
+    width: 100px;
+    height: 100px;
+    margin-top: 200px;
+    box-sizing: border-box;
+    border: 5px solid white; /* Weiße innere Linien */
+}
+
+/* Entfernt die äußeren Ränder, um nur innere Linien zu lassen */
+.field:nth-child(1),
+.field:nth-child(2),
+.field:nth-child(3) {
+    border-top: none;
+}
+
+.field:nth-child(7),
+.field:nth-child(8),
+.field:nth-child(9) {
+    border-bottom: none;
+}
+
+.field:nth-child(1),
+.field:nth-child(4),
+.field:nth-child(7) {
+    border-left: none;
+}
+
+.field:nth-child(3),
+.field:nth-child(6),
+.field:nth-child(9) {
+    border-right: none;
+}
+
+/* Unsichtbare leere Felder */
+.field:empty {
+    background-color: transparent; /* Hintergrund der leeren Felder grau */
+    border-color: white; /* Weiße innere Linien bleiben sichtbar */
+}
+
+/* Kreis-Stil */
+.circle {
+    width: 60px;
+    height: 60px;
+    border: 5px solid white; /* Weißer Kreis */
+    border-radius: 50%;
+}
+
+/* Kreuz-Stil */
+.cross {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.cross::before,
+.cross::after {
+    content: '';
+    position: absolute;
+    width: 5px; /* Dicke der Linien */
+    height: 140%; /* Länge der Linien */
+    background-color: white;
+    bottom: -10px;
+    left: 50%;
+    transform-origin: center;
+}
+
+.cross::before {
+    transform: rotate(45deg); /* Erste Diagonale */
+}
+
+.cross::after {
+    transform: rotate(-45deg); /* Zweite Diagonale */
+}
