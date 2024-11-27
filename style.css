@@ -1,103 +1,84 @@
-/* Hintergrundfarbe der gesamten Seite */
+/* Set background color of the page to #323232 */
 body {
-    background-color: #808080; /* Grau */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
+    background-color: #323232;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
-}
-
-h1{
-    font-family: "Roboto Mono", monospace;
-    font-size: 48px;
     color: white;
 }
 
-/* Grid für das Tic-Tac-Toe-Spielfeld */
-.tic-tac-toe-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: repeat(3, 100px);
-    width: max-content;
-    gap: 0; /* Kein äußerer Abstand zwischen den Feldern */
+h1 {
+    text-align: center;
 }
 
-/* Stil für jedes einzelne Spielfeld */
-.field {
+#content {
+    margin-top: 300px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    background-color: #808080; /* Hintergrund für befüllte Felder */
+    align-items: center;
+    position: relative;
+}
+
+/* Set white border-color and thicker table borders */
+table {
+    border-collapse: collapse;
+    /* Fix typo: should be 'collapse', not 'coll' */
+}
+
+td {
     width: 100px;
     height: 100px;
-    margin-top: 200px;
-    box-sizing: border-box;
-    border: 5px solid white; /* Weiße innere Linien */
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* Entfernt die äußeren Ränder, um nur innere Linien zu lassen */
-.field:nth-child(1),
-.field:nth-child(2),
-.field:nth-child(3) {
-    border-top: none;
+td:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
-.field:nth-child(7),
-.field:nth-child(8),
-.field:nth-child(9) {
-    border-bottom: none;
+table td {
+    border: 5px solid white;
 }
 
-.field:nth-child(1),
-.field:nth-child(4),
-.field:nth-child(7) {
-    border-left: none;
+table tr:first-child td {
+    border-top: 0;
 }
 
-.field:nth-child(3),
-.field:nth-child(6),
-.field:nth-child(9) {
-    border-right: none;
+table tr td:first-child {
+    border-left: 0;
 }
 
-/* Unsichtbare leere Felder */
-.field:empty {
-    background-color: transparent; /* Hintergrund der leeren Felder grau */
-    border-color: white; /* Weiße innere Linien bleiben sichtbar */
+table tr:last-child td {
+    border-bottom: 0;
 }
 
-/* Kreis-Stil */
-.circle {
-    width: 60px;
-    height: 60px;
-    border: 5px solid white; /* Weißer Kreis */
-    border-radius: 50%;
+table tr td:last-child {
+    border-right: 0;
 }
 
-/* Kreuz-Stil */
-.cross {
-    position: relative;
-    width: 60px;
-    height: 60px;
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.cross::before,
-.cross::after {
-    content: '';
-    position: absolute;
-    width: 5px; /* Dicke der Linien */
-    height: 140%; /* Länge der Linien */
-    background-color: white;
-    bottom: -10px;
-    left: 50%;
-    transform-origin: center;
+.mt-32 {
+    margin-top: 32px;
 }
 
-.cross::before {
-    transform: rotate(45deg); /* Erste Diagonale */
+button {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: #00B0EF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-.cross::after {
-    transform: rotate(-45deg); /* Zweite Diagonale */
+button:hover {
+    background-color: #96cadd;
 }
